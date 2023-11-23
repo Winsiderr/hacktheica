@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import Aktors
+from .models import NewNews
 
-admin.site.register(Aktors)
+admin.site.register(NewNews)

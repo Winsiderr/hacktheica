@@ -13,5 +13,11 @@
         <a href="/shops/seeporduscts/" class="nav_link">продукты в магазинах</a>
         <a href="/shops/basket/" class="nav_link">корзина</a>
     </div>
+    {% for m in form %}
+
+        {{m.name}}
+        {{m.nitro}}
+        {{m.text}}
+    {% endfor %}
 </body>
 </html>

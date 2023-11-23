@@ -1,7 +1,7 @@
 from django.db import models
 
 class Products(models.Model):
-    name = models.CharField(max_length=100, default="Отсутствует")
+    name = models.CharField(max_length=110, default="Отсутствует")
     text = models.TextField(blank=True)
     godnost = models.CharField(max_length=10, default="Отсутствует")
     price = models.IntegerField(default="Отсутствует")

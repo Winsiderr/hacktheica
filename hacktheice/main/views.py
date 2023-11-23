@@ -5,7 +5,7 @@ from .models import *
 
 
 def index(request):
-    news = Aktors.objects.all()
+    news = NewNews.objects.all()
     return render(request, 'main/index.html', {'form': news})
 
 def createnews(request):
