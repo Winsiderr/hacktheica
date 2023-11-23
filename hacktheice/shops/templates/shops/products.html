@@ -1,19 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'shops/css/style.css' %}">
     <title>Title</title>
 </head>
 <body>
     <h1>Продукты в наличии</h1>
     {% for m in prods %}
         {% csrf_token %}
-        <p>{{m.name}}</p>
-        <p>{{m.text}}</p>
-        <p>{{m.godnost}}</p>
-        <p>{{m.price}}</p>
-        <p>{{m.colvo}}</p>
-        <p>{{m.photo}}</p>
+        <div class="header_inner">
+            <nav>
+                <li>
+                    <p class="nav_link">{{m.name}}</p>
+                    <p class="nav_link">{{m.text}}</p>
+                    <p class="nav_link">{{m.godnost}}</p>
+                    <p class="nav_link">{{m.price}}</p>
+                    <p class="nav_link">{{m.colvo}}</p>
+                    <p class="nav_link">{{m.photo}}</p>
+                </li>
+            </nav>
+        </div>
     {% endfor %}
 </body>
 </html>

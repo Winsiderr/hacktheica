@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
 from .forms import Createprods
-from .models import Products
+from .models import Products, AddedProds
 
 
 def products(request):
@@ -11,18 +11,17 @@ def products(request):
 
 
 def prodsmake(request):
-    error = ''
     if request.method == "POST":
         form = Createprods(request.POST)
         if form.is_valid():
             form.save()
-            #return redirect('shops/')
-        else:
-            error = 'ytn'
+            return redirect('../../register/profile/')
     form = Createprods()
     data = {
         'form': form,
-        'error': error
     }
     return render(request, 'shops/makeprods.html', data)
 
+def bascket(request):
+    prods = AddedProds.objects.all()
+    return render(request, 'shops/bascket.html', {'prods': prods})
