@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Продукты в наличии</h1>
+    {% for m in prods %}
+        {% csrf_token %}
+        <p>{{m.name}}</p>
+        <p>{{m.text}}</p>
+        <p>{{m.godnost}}</p>
+        <p>{{m.price}}</p>
+        <p>{{m.colvo}}</p>
+        <p>{{m.photo}}</p>
+    {% endfor %}
+</body>
+</html>

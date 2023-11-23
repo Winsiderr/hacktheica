@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method ="post">
+        {% csrf_token %}
+        <input type ="text" name ="username" id="userName">
+        <input type ="text" name ="password" id="pwd">
+        {{ form.errors }}
+        <button>Login</button>
+    </form>
+    <a href="/register/signup">sign up</a>
+</body>
+</html>

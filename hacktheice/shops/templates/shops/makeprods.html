@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button>ОТправить</button>
+        {{ form.errors }}
+        {{ error }}
+  </form>
+</body>
+</html>

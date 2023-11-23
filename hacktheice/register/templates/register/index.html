@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'register/css/register.css' %}">
+    <title>{{ user.username }}</title>
+</head>
+<body>
+    <h1>Пользователь {{ user.username }}</h1>
+    <h1>Роль на серверe {{ user.userrole }}</h1>
+    <h1>местность бытия {{ user.place }}</h1>
+    <button onclick="location.href='{% url 'logout' %}?next=/register/profile'">Logout</button>
+    {% if request.user.userrole == 's' %}
+        <a href="../../createnews/">Напишите новости</a>
+        <a href="../../shops/makeporduscts/">Заполнение товара</a>
+    {% endif %}
+</body>
+</html>
