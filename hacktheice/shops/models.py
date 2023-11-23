@@ -9,11 +9,11 @@ class Products(models.Model):
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/")
 
     def __str__(self):
-        return self.text
+        return self.name
 
 class AddedProds(models.Model):
     colvo = models.IntegerField(default=0)
     product = models.OneToOneField(Products, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.product.text
+        return self.product.name

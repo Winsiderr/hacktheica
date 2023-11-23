@@ -1,10 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'shops/css/style.css' %}">
     <title>Title</title>
 </head>
 <body>
-    {{ prods }}
+    <form method="post">
+        {% csrf_token %}
+        {{ prods }}
+        <button>Добавить в корзину</button>
+    </form>
+    <h1>Выбранные товары</h1>
+    {% for m in prod %}
+    <div class="header_inner">
+        <nav>
+            <li>
+                <p class="nav_link">Название - {{m.product.name}}</p>
+                <p class="nav_link">Колличество - {{m.colvo}}</p>
+                <p class="nav_link">Цена за 1шт - {{m.product.price}}</p>
+                {{ a = a + m.colvo * m.colvo }}
+            </li>
+        </nav>
+    </div>
+    {% endfor %}
+    <p>Итоговая сумма - {{a}}</p>
 </body>
 </html>

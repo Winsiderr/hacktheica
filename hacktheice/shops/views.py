@@ -1,7 +1,8 @@
+from django.db.models import Sum
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
-from .forms import Createprods
+from .forms import Createprods, InBasck
 from .models import Products, AddedProds
 
 
@@ -23,5 +24,17 @@ def prodsmake(request):
     return render(request, 'shops/makeprods.html', data)
 
 def bascket(request):
-    prods = AddedProds.objects.all()
-    return render(request, 'shops/bascket.html', {'prods': prods})
+    a = 0
+    a = 0
+    if request.method == "POST":
+        prods = InBasck(request.POST)
+        if prods.is_valid():
+            prods.save()
+    products = AddedProds.objects.all()
+    prods = InBasck()
+    data = {
+        'prods': prods,
+        'prod' : products,
+        'a' : a
+    }
+    return render(request, 'shops/bascket.html', data)
