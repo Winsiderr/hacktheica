@@ -25,13 +25,14 @@ def prodsmake(request):
 
 def bascket(request):
     a = 0
-    a = 0
     if request.method == "POST":
         prods = InBasck(request.POST)
         if prods.is_valid():
             prods.save()
     products = AddedProds.objects.all()
     prods = InBasck()
+    for i in products:
+        a += i.colvo * i.product.price
     data = {
         'prods': prods,
         'prod' : products,
