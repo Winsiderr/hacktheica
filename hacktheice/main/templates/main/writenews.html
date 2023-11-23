@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-  <h1>only for sellers</h1>
+    <h1>only for sellers</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button>Добавить в корзину</button>
+    </form>
 </body>
 </html>
